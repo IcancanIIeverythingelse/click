@@ -1,0 +1,20 @@
+# C++ compilers
+*.obj
+*.exe
+*.pdb
+*.ilk
+
+# Library binaries inside extern (optional, but .lib and .dll files are heavy)
+# If you want zlib.lib on GitHub, remove the line below:
+# *.lib
+
+# Conda build results (if you built something locally in this folder)
+conda-bld/
+*.conda
+*.tar.bz2
+
+# Editors and IDE folder (e.g. VS Code or Visual Studio)
+.vscode/
+*.sln
+*.vcxproj
+*.user

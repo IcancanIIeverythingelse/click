@@ -1,0 +1,29 @@
+package:
+  name: my-zlib-app
+  version: "1.0"
+
+source:
+  path: ..
+
+build:
+  number: 0
+
+requirements:
+
+  build:
+    - {{ compiler('cxx') }}
+    - cmake
+    - ninja
+
+  host:
+    - zlib
+
+  run:
+    - zlib
+
+test:
+  commands:
+    - my-zlib-app
+
+about:
+  summary: Example C++ application using zlib

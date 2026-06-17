@@ -1,0 +1,44 @@
+{% set version = "8.4.1" %}
+
+package:
+  name: click
+  version: {{ version }}
+
+source:
+  url: https://pypi.org/packages/source/c/click/click-{{ version }}.tar.gz
+  sha256: 918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96
+
+build:
+  skip: true  # [py<310]
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+
+requirements:
+  host:
+    - python >=3.10
+    - flit-core >=3.11,<4
+    - pip
+  run:
+    - python >=3.10
+    - colorama  # [win]
+
+test:
+  imports:
+    - click
+  commands:
+    - pip check
+  requires:
+    - pip
+    - python
+
+about:
+  home: https://github.com/pallets/click
+  summary: Composable command line interface toolkit
+  doc_url: https://click.palletsprojects.com/
+  dev_url: https://github.com/pallets/click/
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+
+extra:
+  recipe-maintainers:
+    - AddYourGitHubIdHere
