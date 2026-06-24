@@ -2,7 +2,9 @@
 #define COMPRESSOR_H
 
 #include <string>
+#include <vector>
+#include <cstdint>
 
-std::size_t compressString(const std::string& input);
+std::vector<uint8_t> compressString(const std::string& input);
 
 #endif

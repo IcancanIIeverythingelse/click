@@ -1,20 +1,20 @@
 #include "../include/compressor.h"
 #include "../extern/zlib/zlib.h"
 
-std::size_t compressString(const std::string& input)
+std::vector<uint8_t> compressString(const std::string& input)
 {
     uLong srcLen = input.size();
     uLong destLen = compressBound(srcLen);
 
-    Bytef* compressed = new Bytef[destLen];
+    std::vector<uint8_t> compressed(destLen);
 
     compress(
-        compressed,
+        compressed.data(),
         &destLen,
         reinterpret_cast<const Bytef*>(input.c_str()),
         srcLen);
 
-    delete[] compressed;
+    compressed.resize(destLen);
 
-    return destLen;
+    return compressed;
 }

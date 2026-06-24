@@ -7,6 +7,7 @@ find_package(ZLIB REQUIRED)
 add_executable(
 		my-zlib-app 
 		src/main.cpp
+		src/compressor.cpp
 )
 
 target_link_libraries(

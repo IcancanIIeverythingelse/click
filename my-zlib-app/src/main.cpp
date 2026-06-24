@@ -7,7 +7,7 @@ int main()
     std::string text =
         "Hello from Conda package!";
 
-    std::size_t compressedSize =
+    auto compressed =
         compressString(text);
 
     std::cout << "Original size: "
@@ -15,7 +15,7 @@ int main()
               << '\n';
 
     std::cout << "Compressed size: "
-              << compressedSize
+              << compressed.size()
               << '\n';
 
     return 0;
